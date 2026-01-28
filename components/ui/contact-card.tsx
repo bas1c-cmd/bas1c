@@ -25,13 +25,13 @@ export function ContactCard() {
 
         <div className="bottom-container">
           <div className="social-buttons">
-            <a href="https://github.com" target="_blank" rel="noreferrer" className="social-button">
+            <a href="https://github.com/bas1c-cmd" target="_blank" rel="noreferrer" className="social-button">
               <Github className="social-svg" />
             </a>
             <a href="https://www.linkedin.com/in/yassine-chaibi-271b02395/" target="_blank" rel="noreferrer" className="social-button">
               <Linkedin className="social-svg" />
             </a>
-            <a href="https://www.instagram.com/stufy.agency/?utm_source=qr&r=nametag" target="_blank" rel="noreferrer" className="social-button">
+            <a href="https://www.instagram.com/bas1c.web/?utm_source=ig_web_button_share_sheet" target="_blank" rel="noreferrer" className="social-button">
               <Instagram className="social-svg" />
             </a>
           </div>

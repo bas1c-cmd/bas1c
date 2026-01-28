@@ -43,7 +43,7 @@ export const ScrollExpandMedia = ({
         setScrollProgress(0);
         setShowContent(false);
         setMediaFullyExpanded(false);
-    }, [mediaType]);
+    }, [mediaType, mediaSrc]);
 
     useEffect(() => {
         const handleWheel = (e: globalThis.WheelEvent) => {
