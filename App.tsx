@@ -65,7 +65,7 @@ export default function App() {
                                         playsInline
                                         className="w-full h-full object-cover"
                                     >
-                                        <source src="/hero-background.mp4" type="video/mp4" />
+                                        <source src="./hero-background.mp4" type="video/mp4" />
                                     </video>
                                 </div>
 
@@ -127,7 +127,7 @@ export default function App() {
                                     className="absolute bottom-10 right-10 z-10"
                                 >
                                     <a
-                                        href="/resume.pdf"
+                                        href="./resume.pdf"
                                         download
                                         className="group flex items-center gap-3 bg-[#4A0E0E] text-[#CD5C5C] px-6 py-3 rounded-2xl font-bold text-xl border border-[#8B0000]/30 cursor-pointer transition-all duration-300 hover:bg-[#8B0000] hover:text-white hover:border-[#CD5C5C] active:scale-95 shadow-[0_0_20px_rgba(139,0,0,0.3)]"
                                     >
@@ -179,9 +179,9 @@ export default function App() {
                                         <AnimatedFolder
                                             title="About Me"
                                             projects={[
-                                                { id: "a1", image: "/about-journey.png", title: "Journey", description: "Aspiring AI Engineer specializing in automation and Linux systems" },
-                                                { id: "a2", image: "/about-skills.png", title: "Skills", description: "Python, Machine Learning, Deep Learning, Linux, Automation, DevOps" },
-                                                { id: "a3", image: "/about-experience.png", title: "Experience", description: "Building intelligent systems and automation solutions" },
+                                                { id: "a1", image: "./about-journey.png", title: "Journey", description: "Aspiring AI Engineer specializing in automation and Linux systems" },
+                                                { id: "a2", image: "./about-skills.png", title: "Skills", description: "Python, Machine Learning, Deep Learning, Linux, Automation, DevOps" },
+                                                { id: "a3", image: "./about-experience.png", title: "Experience", description: "Building intelligent systems and automation solutions" },
                                             ] as Project[]}
                                             gradient="linear-gradient(135deg, #8B0000, #CD5C5C)"
                                             onClick={() => handleNavChange("About")}
@@ -246,7 +246,7 @@ export default function App() {
                                         playsInline
                                         className="w-full h-full object-cover"
                                     >
-                                        <source src="/about-hero.mp4" type="video/mp4" />
+                                        <source src="./about-hero.mp4" type="video/mp4" />
                                     </video>
                                     {/* Subtle vignette instead of heavy overlay for 3D realism */}
                                     <div className="absolute inset-0 bg-gradient-to-r from-transparent via-transparent to-black/80"></div>
