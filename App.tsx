@@ -58,12 +58,15 @@ export default function App() {
                             {/* SLIDE 1: HERO INTRO */}
                             <section className="sticky top-0 h-screen w-full bg-black flex flex-col items-center justify-center overflow-hidden z-0 shadow-2xl">
                                 <div className="absolute inset-0 w-full h-full z-0">
-                                    <div className="absolute inset-0 bg-gradient-to-br from-black via-[#1a0000] to-[#0a0000] animate-gradient"></div>
-                                    <div className="absolute inset-0 opacity-30">
-                                        <div className="absolute top-0 left-0 w-96 h-96 bg-[#8B0000] rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob"></div>
-                                        <div className="absolute top-0 right-0 w-96 h-96 bg-[#CD5C5C] rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob animation-delay-2000"></div>
-                                        <div className="absolute bottom-0 left-1/2 w-96 h-96 bg-[#8B0000] rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob animation-delay-4000"></div>
-                                    </div>
+                                    <video
+                                        autoPlay
+                                        loop
+                                        muted
+                                        playsInline
+                                        className="w-full h-full object-cover"
+                                    >
+                                        <source src="https://res.cloudinary.com/datcymrsj/video/upload/v1769637133/kling_20260126_Image_to_Video_infinity_l_5272_0_cyjbqx.mp4" type="video/mp4" />
+                                    </video>
                                 </div>
 
                                 <motion.div
@@ -236,11 +239,16 @@ export default function App() {
                             <section className="h-screen relative flex items-center justify-center overflow-hidden bg-black">
                                 {/* Video Background */}
                                 <div className="absolute inset-0 w-full h-full z-0">
-                                    <div className="absolute inset-0 bg-gradient-to-br from-black via-[#0a0000] to-[#1a0000] animate-gradient"></div>
-                                    <div className="absolute inset-0 opacity-20">
-                                        <div className="absolute top-1/4 left-0 w-96 h-96 bg-[#CD5C5C] rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob"></div>
-                                        <div className="absolute bottom-1/4 right-0 w-96 h-96 bg-[#8B0000] rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob animation-delay-2000"></div>
-                                    </div>
+                                    <video
+                                        autoPlay
+                                        loop
+                                        muted
+                                        playsInline
+                                        className="w-full h-full object-cover"
+                                    >
+                                        <source src="https://res.cloudinary.com/datcymrsj/video/upload/v1769637728/kling_20260127_Image_to_Video_the_caract_1497_0_qv0wiq.mp4" type="video/mp4" />
+                                    </video>
+                                    {/* Subtle vignette */}
                                     <div className="absolute inset-0 bg-gradient-to-r from-transparent via-transparent to-black/80"></div>
                                 </div>
 
