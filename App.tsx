@@ -58,15 +58,12 @@ export default function App() {
                             {/* SLIDE 1: HERO INTRO */}
                             <section className="sticky top-0 h-screen w-full bg-black flex flex-col items-center justify-center overflow-hidden z-0 shadow-2xl">
                                 <div className="absolute inset-0 w-full h-full z-0">
-                                    <video
-                                        autoPlay
-                                        loop
-                                        muted
-                                        playsInline
-                                        className="w-full h-full object-cover"
-                                    >
-                                        <source src="./hero-background.mp4" type="video/mp4" />
-                                    </video>
+                                    <div className="absolute inset-0 bg-gradient-to-br from-black via-[#1a0000] to-[#0a0000] animate-gradient"></div>
+                                    <div className="absolute inset-0 opacity-30">
+                                        <div className="absolute top-0 left-0 w-96 h-96 bg-[#8B0000] rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob"></div>
+                                        <div className="absolute top-0 right-0 w-96 h-96 bg-[#CD5C5C] rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob animation-delay-2000"></div>
+                                        <div className="absolute bottom-0 left-1/2 w-96 h-96 bg-[#8B0000] rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob animation-delay-4000"></div>
+                                    </div>
                                 </div>
 
                                 <motion.div
@@ -239,16 +236,11 @@ export default function App() {
                             <section className="h-screen relative flex items-center justify-center overflow-hidden bg-black">
                                 {/* Video Background */}
                                 <div className="absolute inset-0 w-full h-full z-0">
-                                    <video
-                                        autoPlay
-                                        loop
-                                        muted
-                                        playsInline
-                                        className="w-full h-full object-cover"
-                                    >
-                                        <source src="./about-hero.mp4" type="video/mp4" />
-                                    </video>
-                                    {/* Subtle vignette instead of heavy overlay for 3D realism */}
+                                    <div className="absolute inset-0 bg-gradient-to-br from-black via-[#0a0000] to-[#1a0000] animate-gradient"></div>
+                                    <div className="absolute inset-0 opacity-20">
+                                        <div className="absolute top-1/4 left-0 w-96 h-96 bg-[#CD5C5C] rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob"></div>
+                                        <div className="absolute bottom-1/4 right-0 w-96 h-96 bg-[#8B0000] rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob animation-delay-2000"></div>
+                                    </div>
                                     <div className="absolute inset-0 bg-gradient-to-r from-transparent via-transparent to-black/80"></div>
                                 </div>
 
