@@ -15,13 +15,43 @@ import { motion } from "framer-motion";
 export default function App() {
     const [activeSection, setActiveSection] = useState("Home");
     const [isLoading, setIsLoading] = useState(true);
+    const [videosLoaded, setVideosLoaded] = useState(0);
 
     useEffect(() => {
-        // Simulate initial loading sequence
-        const timer = setTimeout(() => {
+        // Wait for both videos to load
+        const handleVideoLoad = () => {
+            setVideosLoaded(prev => {
+                const newCount = prev + 1;
+                // Both videos loaded (Hero + About)
+                if (newCount >= 2) {
+                    setIsLoading(false);
+                }
+                return newCount;
+            });
+        };
+
+        // Add event listeners to videos
+        const videos = document.querySelectorAll('video');
+        videos.forEach(video => {
+            if (video.readyState >= 3) {
+                // Video already loaded
+                handleVideoLoad();
+            } else {
+                video.addEventListener('loadeddata', handleVideoLoad);
+            }
+        });
+
+        // Fallback: Remove loader after 5 seconds even if videos haven't loaded
+        const fallbackTimer = setTimeout(() => {
             setIsLoading(false);
-        }, 2500);
-        return () => clearTimeout(timer);
+        }, 5000);
+
+        return () => {
+            clearTimeout(fallbackTimer);
+            videos.forEach(video => {
+                video.removeEventListener('loadeddata', handleVideoLoad);
+            });
+        };
     }, []);
 
     const navItems: NavItem[] = [
