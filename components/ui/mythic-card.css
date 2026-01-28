@@ -1,0 +1,219 @@
+/* Uiverse Mythic Card - Adapted for Dark Red Theme */
+.uiverse-mythic-card {
+    --mythic: #CD5C5C;
+    --mythic-soft: rgba(205, 92, 92, 0.25);
+    --mythic-glow: #8B0000;
+    font-family: inherit;
+    display: grid;
+    place-items: center;
+    padding: 40px;
+    background: transparent;
+    width: 100%;
+}
+
+.uiverse-mythic-card .deck {
+    perspective: 1400px;
+}
+
+.uiverse-mythic-card .card {
+    width: 320px;
+    border-radius: 22px;
+    position: relative;
+    overflow: hidden;
+    transform-style: preserve-3d;
+    background: linear-gradient(180deg, #0c0c14, #020205),
+        repeating-linear-gradient(45deg,
+            rgba(255, 255, 255, 0.03) 0,
+            rgba(255, 255, 255, 0.03) 1px,
+            transparent 1px,
+            transparent 6px);
+    box-shadow: 0 30px 70px rgba(0, 0, 0, 0.9), inset 0 0 40px rgba(255, 255, 255, 0.05);
+    transition: transform 0.7s cubic-bezier(0.22, 0.61, 0.36, 1), box-shadow 0.7s;
+}
+
+.uiverse-mythic-card .mythic {
+    border: 1px solid rgba(139, 0, 0, 0.7);
+}
+
+.uiverse-mythic-card .mythic::before {
+    content: "";
+    position: absolute;
+    inset: -2px;
+    border-radius: inherit;
+    background: linear-gradient(120deg, transparent, var(--mythic-glow), transparent);
+    filter: blur(18px);
+    opacity: 0.6;
+    z-index: -1;
+    animation: glow 4s ease-in-out infinite;
+}
+
+@keyframes glow {
+
+    0%,
+    100% {
+        opacity: 0.35;
+    }
+
+    50% {
+        opacity: 0.9;
+    }
+}
+
+.uiverse-mythic-card .mythic::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(120deg, transparent 35%, rgba(255, 255, 255, 0.35), transparent 65%);
+    background-size: 200% 200%;
+    mix-blend-mode: overlay;
+    animation: holo 3s linear infinite;
+    pointer-events: none;
+}
+
+@keyframes holo {
+    from {
+        background-position: 0% 50%;
+    }
+
+    to {
+        background-position: 100% 50%;
+    }
+}
+
+.uiverse-mythic-card .card:hover {
+    transform: rotateX(10deg) rotateY(-10deg) scale(1.05);
+    box-shadow: 0 60px 140px rgba(139, 0, 0, 0.55);
+}
+
+.uiverse-mythic-card .art {
+    height: 180px;
+    position: relative;
+    background: radial-gradient(circle at center, var(--mythic-soft), transparent 65%),
+        linear-gradient(135deg, #2b0f0f, #040406);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.uiverse-mythic-card .art::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(circle, rgba(255, 255, 255, 0.4) 1px, transparent 1px);
+    background-size: 24px 24px;
+    opacity: 0.12;
+    animation: particles 10s linear infinite;
+}
+
+@keyframes particles {
+    from {
+        background-position: 0 0;
+    }
+
+    to {
+        background-position: 240px 240px;
+    }
+}
+
+.uiverse-mythic-card .cost {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: #8B0000;
+    color: white;
+    display: grid;
+    place-items: center;
+    font-weight: 800;
+    box-shadow: 0 0 25px rgba(139, 0, 0, 0.8);
+    border: 1px solid #CD5C5C;
+}
+
+.uiverse-mythic-card .content {
+    padding: 18px;
+    color: #f5f5f5;
+}
+
+.uiverse-mythic-card .title {
+    font-size: 22px;
+    font-weight: 800;
+    letter-spacing: 0.6px;
+    text-transform: uppercase;
+}
+
+.uiverse-mythic-card .type {
+    font-size: 12px;
+    opacity: 0.65;
+    margin-bottom: 12px;
+    color: #CD5C5C;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.uiverse-mythic-card .stats {
+    display: flex;
+    justify-content: space-between;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 8px 12px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.uiverse-mythic-card .stats span {
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.uiverse-mythic-card .status {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.uiverse-mythic-card .status span {
+    filter: drop-shadow(0 0 6px currentColor);
+}
+
+.uiverse-mythic-card .ability {
+    background: rgba(139, 0, 0, 0.12);
+    border-left: 3px solid #CD5C5C;
+    padding: 10px;
+    border-radius: 8px;
+    font-size: 13px;
+    margin-bottom: 12px;
+}
+
+.uiverse-mythic-card .ability-title {
+    color: #CD5C5C;
+    margin-bottom: 4px;
+    font-weight: 800;
+    text-transform: uppercase;
+    font-size: 11px;
+}
+
+.uiverse-mythic-card .ability-text {
+    line-height: 1.4;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.uiverse-mythic-card .flavor {
+    margin-top: 12px;
+    font-size: 11px;
+    font-style: italic;
+    opacity: 0.5;
+    text-align: center;
+}
+
+.uiverse-mythic-card .rarity {
+    position: absolute;
+    top: 14px;
+    left: 14px;
+    font-size: 10px;
+    font-weight: 900;
+    letter-spacing: 2px;
+    color: #CD5C5C;
+}

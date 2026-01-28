@@ -1,0 +1,240 @@
+/* From Uiverse.io by Smit-Prajapati - Adapted for Dark Red Theme */
+.contact-parent {
+  width: 320px;
+  height: 340px;
+  perspective: 1000px;
+}
+
+.contact-card {
+  height: 100%;
+  border-radius: 50px;
+  background: linear-gradient(135deg, #CD5C5C 0%, #8B0000 100%);
+  transition: all 0.5s ease-in-out;
+  transform-style: preserve-3d;
+  box-shadow: rgba(139, 0, 0, 0) 40px 50px 25px -40px, rgba(139, 0, 0, 0.2) 0px 25px 25px -5px;
+}
+
+.glass-layer {
+  transform-style: preserve-3d;
+  position: absolute;
+  inset: 8px;
+  border-radius: 55px;
+  border-top-right-radius: 100%;
+  background: linear-gradient(0deg, rgba(255, 255, 255, 0.35) 0%, rgba(255, 255, 255, 0.82) 100%);
+  transform: translate3d(0px, 0px, 25px);
+  border-left: 1px solid white;
+  border-bottom: 1px solid white;
+  transition: all 0.5s ease-in-out;
+}
+
+.content-container {
+  padding: 100px 60px 0px 30px;
+  transform: translate3d(0, 0, 26px);
+}
+
+.card-title {
+  display: block;
+  color: #4A0E0E;
+  font-weight: 900;
+  font-size: 24px;
+  letter-spacing: -0.02em;
+}
+
+.card-text {
+  display: block;
+  color: rgba(74, 14, 14, 0.8);
+  font-size: 15px;
+  margin-top: 20px;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+.bottom-container {
+  padding: 10px 12px;
+  transform-style: preserve-3d;
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  right: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transform: translate3d(0, 0, 26px);
+}
+
+.view-more {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border-radius: 20px;
+  background: rgba(255,255,255,0.2);
+  border: 1px solid rgba(255,255,255,0.4);
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.view-more:hover {
+  transform: translate3d(0, 0, 10px);
+  background: rgba(255,255,255,0.4);
+}
+
+.view-more-button {
+  background: none;
+  border: none;
+  color: #4A0E0E;
+  font-weight: 800;
+  font-size: 12px;
+  text-transform: uppercase;
+}
+
+.view-more-svg {
+  width: 16px;
+  height: 16px;
+  color: #4A0E0E;
+}
+
+.social-buttons {
+  display: flex;
+  gap: 10px;
+  transform-style: preserve-3d;
+}
+
+.social-button {
+  width: 36px;
+  aspect-ratio: 1;
+  padding: 8px;
+  background: white;
+  border-radius: 50%;
+  border: none;
+  display: grid;
+  place-content: center;
+  box-shadow: rgba(139, 0, 0, 0.4) 0px 7px 5px -5px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.social-button:first-child {
+  transition: transform 0.2s ease-in-out 0.4s, box-shadow 0.2s ease-in-out 0.4s, background 0.2s;
+}
+
+.social-button:nth-child(2) {
+  transition: transform 0.2s ease-in-out 0.6s, box-shadow 0.2s ease-in-out 0.6s, background 0.2s;
+}
+
+.social-button:nth-child(3) {
+  transition: transform 0.2s ease-in-out 0.8s, box-shadow 0.2s ease-in-out 0.8s, background 0.2s;
+}
+
+.social-svg {
+  width: 18px;
+  height: 18px;
+  color: #8B0000;
+  transition: color 0.2s;
+}
+
+.social-button:hover {
+  background: #4A0E0E;
+  transform: translateY(-2px);
+}
+
+.social-button:hover .social-svg {
+  color: white;
+}
+
+.social-button:active {
+  background: #CD5C5C;
+}
+
+.logo-container {
+  position: absolute;
+  right: 0;
+  top: 0;
+  transform-style: preserve-3d;
+}
+
+.circle {
+  display: block;
+  position: absolute;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  top: 0;
+  right: 0;
+  box-shadow: rgba(100, 100, 111, 0.2) -10px 10px 20px 0px;
+  backdrop-filter: blur(5px);
+  background: rgba(205, 92, 92, 0.2);
+  transition: all 0.5s ease-in-out;
+}
+
+.circle1 {
+  width: 170px;
+  transform: translate3d(0, 0, 20px);
+  top: 8px;
+  right: 8px;
+}
+
+.circle2 {
+  width: 140px;
+  transform: translate3d(0, 0, 40px);
+  top: 10px;
+  right: 10px;
+  backdrop-filter: blur(1px);
+  transition-delay: 0.4s;
+}
+
+.circle3 {
+  width: 110px;
+  transform: translate3d(0, 0, 60px);
+  top: 17px;
+  right: 17px;
+  transition-delay: 0.8s;
+}
+
+.circle4 {
+  width: 80px;
+  transform: translate3d(0, 0, 80px);
+  top: 23px;
+  right: 23px;
+  transition-delay: 1.2s;
+}
+
+.circle5 {
+  width: 50px;
+  height: 50px;
+  transform: translate3d(0, 0, 100px);
+  top: 30px;
+  right: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition-delay: 1.6s;
+  background: transparent;
+  box-shadow: none;
+}
+
+.contact-parent:hover .contact-card {
+  transform: rotate3d(1, 1, 0, 30deg);
+  box-shadow: rgba(139, 0, 0, 0.3) 30px 50px 25px -40px, rgba(139, 0, 0, 0.1) 0px 25px 30px 0px;
+}
+
+.contact-parent:hover .contact-card .bottom-container .social-button {
+  transform: translate3d(0, 0, 50px);
+  box-shadow: rgba(139, 0, 0, 0.2) -5px 20px 10px 0px;
+}
+
+.contact-parent:hover .contact-card .logo-container .circle2 {
+  transform: translate3d(0, 0, 60px);
+}
+
+.contact-parent:hover .contact-card .logo-container .circle3 {
+  transform: translate3d(0, 0, 80px);
+}
+
+.contact-parent:hover .contact-card .logo-container .circle4 {
+  transform: translate3d(0, 0, 100px);
+}
+
+.contact-parent:hover .contact-card .logo-container .circle5 {
+  transform: translate3d(0, 0, 120px);
+}
