@@ -14,6 +14,14 @@ interface Project {
 
 const projects: Project[] = [
     {
+        id: '0',
+        title: '9anoun.ai',
+        url: 'https://9anouni-sigma.vercel.app',
+        imageSrc: '/9anon.png',
+        description: 'An AI-powered legal assistant designed to simplify complex legal information and provide instant answers to legal queries.',
+        technologies: ['React', 'AI/LLM', 'Tailwind CSS', 'Vercel'],
+    },
+    {
         id: '1',
         title: 'Plant E',
         url: 'https://plant-e-project.netlify.app',
