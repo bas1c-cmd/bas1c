@@ -83,7 +83,8 @@ export const ScrollExpandMedia = ({
                 e.preventDefault();
             } else if (!mediaFullyExpanded) {
                 e.preventDefault();
-                const scrollFactor = deltaY < 0 ? 0.008 : 0.005;
+                // Increased sensitivity for touch
+                const scrollFactor = deltaY < 0 ? 0.015 : 0.01;
                 const scrollDelta = deltaY * scrollFactor;
                 const newProgress = Math.min(
                     Math.max(scrollProgress + scrollDelta, 0),
@@ -148,9 +149,15 @@ export const ScrollExpandMedia = ({
         return () => window.removeEventListener('resize', checkIfMobile);
     }, []);
 
-    const mediaWidth = 300 + scrollProgress * (isMobileState ? 650 : 1250);
-    const mediaHeight = 400 + scrollProgress * (isMobileState ? 200 : 400);
-    const textTranslateX = scrollProgress * (isMobileState ? 180 : 150);
+    const mediaWidth = isMobileState
+        ? Math.min(280 + scrollProgress * 700, window.innerWidth * 0.95)
+        : Math.min(300 + scrollProgress * 1250, window.innerWidth * 0.9);
+
+    const mediaHeight = isMobileState
+        ? Math.min(350 + scrollProgress * 250, window.innerHeight * 0.7)
+        : Math.min(400 + scrollProgress * 400, window.innerHeight * 0.8);
+
+    const textTranslateX = scrollProgress * (isMobileState ? 120 : 150);
 
     const firstWord = title ? title.split(' ')[0] : '';
     const restOfTitle = title ? title.split(' ').slice(1).join(' ') : '';
@@ -255,17 +262,17 @@ export const ScrollExpandMedia = ({
                             </div>
 
                             <div
-                                className={`flex items-center justify-center text-center gap-4 w-full relative z-10 transition-none flex-col ${textBlend ? 'mix-blend-difference' : 'mix-blend-normal'
+                                className={`flex items-center justify-center text-center gap-2 md:gap-4 w-full relative z-10 transition-none flex-col ${textBlend ? 'mix-blend-difference' : 'mix-blend-normal'
                                     }`}
                             >
                                 <motion.h2
-                                    className='text-4xl md:text-5xl lg:text-6xl font-bold text-[#CD5C5C] transition-none'
+                                    className='text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-[#CD5C5C] transition-none whitespace-nowrap'
                                     style={{ transform: `translateX(-${textTranslateX}vw)` }}
                                 >
                                     {firstWord}
                                 </motion.h2>
                                 <motion.h2
-                                    className='text-4xl md:text-5xl lg:text-6xl font-bold text-center text-[#CD5C5C] transition-none'
+                                    className='text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-center text-[#CD5C5C] transition-none whitespace-nowrap'
                                     style={{ transform: `translateX(${textTranslateX}vw)` }}
                                 >
                                     {restOfTitle}
@@ -274,7 +281,7 @@ export const ScrollExpandMedia = ({
                         </div>
 
                         <motion.section
-                            className='flex flex-col w-full px-8 py-10 md:px-16 lg:py-20'
+                            className='flex flex-col w-full px-4 sm:px-8 py-10 md:px-16 lg:py-20'
                             initial={{ opacity: 0 }}
                             animate={{ opacity: showContent ? 1 : 0 }}
                             transition={{ duration: 0.7 }}

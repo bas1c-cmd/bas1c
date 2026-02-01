@@ -108,7 +108,7 @@ export default function App() {
                                         </div>
 
                                         <motion.div
-                                            className="absolute top-1/2 left-10 -translate-y-1/2 z-10"
+                                            className="absolute top-1/2 left-4 md:left-10 -translate-y-1/2 z-10 w-[calc(100%-2rem)] md:w-auto"
                                             initial={{ opacity: 0, x: -100 }}
                                             animate={{ opacity: 1, x: 0 }}
                                             transition={{ duration: 0.8, ease: "easeOut" }}
@@ -128,11 +128,11 @@ export default function App() {
                                                         <MagneticText
                                                             text="bas1c"
                                                             hoverText="DEVELOPER"
-                                                            className="text-[#8B0000] drop-shadow-[0_0_30px_rgba(139,0,0,0.8)]"
+                                                            className="text-[#8B0000] drop-shadow-[0_0_30px_rgba(139,0,0,0.8)] text-6xl sm:text-7xl md:text-8xl lg:text-9xl"
                                                         />
                                                         {/* Animated underline */}
                                                         <motion.div
-                                                            className="h-1 bg-gradient-to-r from-[#8B0000] to-transparent mt-2"
+                                                            className="h-1 bg-gradient-to-r from-[#8B0000] to-transparent mt-2 overflow-hidden"
                                                             initial={{ width: 0 }}
                                                             animate={{ width: "100%" }}
                                                             transition={{ delay: 0.5, duration: 1, ease: "easeOut" }}
@@ -146,10 +146,10 @@ export default function App() {
                                                         animate={{ opacity: 1 }}
                                                         transition={{ delay: 0.8, duration: 0.6 }}
                                                     >
-                                                        <div className="text-2xl font-bold tracking-[0.3em] text-[#CD5C5C] drop-shadow-[0_0_15px_rgba(205,92,92,0.6)] uppercase">
+                                                        <div className="text-xl sm:text-2xl font-bold tracking-[0.2em] sm:tracking-[0.3em] text-[#CD5C5C] drop-shadow-[0_0_15px_rgba(205,92,92,0.6)] uppercase">
                                                             AI Engineer
                                                         </div>
-                                                        <div className="text-lg tracking-[0.2em] text-[#CD5C5C]/80 font-medium">
+                                                        <div className="text-sm sm:text-lg tracking-[0.15em] sm:tracking-[0.2em] text-[#CD5C5C]/80 font-medium">
                                                             Automation • Linux • Dev
                                                         </div>
                                                     </motion.div>
@@ -162,12 +162,12 @@ export default function App() {
                                             initial={{ opacity: 0, scale: 0.8 }}
                                             animate={{ opacity: 1, scale: 1 }}
                                             transition={{ delay: 1.2, duration: 0.5 }}
-                                            className="absolute bottom-10 right-10 z-10"
+                                            className="absolute bottom-10 right-4 md:right-10 z-10"
                                         >
                                             <a
                                                 href="./resume.pdf"
                                                 download
-                                                className="group flex items-center gap-3 bg-[#4A0E0E] text-[#CD5C5C] px-6 py-3 rounded-2xl font-bold text-xl border border-[#8B0000]/30 cursor-pointer transition-all duration-300 hover:bg-[#8B0000] hover:text-white hover:border-[#CD5C5C] active:scale-95 shadow-[0_0_20px_rgba(139,0,0,0.3)]"
+                                                className="group flex items-center gap-2 sm:gap-3 bg-[#4A0E0E] text-[#CD5C5C] px-4 py-2 sm:px-6 sm:py-3 rounded-2xl font-bold text-lg sm:text-xl border border-[#8B0000]/30 cursor-pointer transition-all duration-300 hover:bg-[#8B0000] hover:text-white hover:border-[#CD5C5C] active:scale-95 shadow-[0_0_20px_rgba(139,0,0,0.3)]"
                                             >
                                                 <div className="transition-transform duration-500 group-hover:scale-125">
                                                     <svg
@@ -180,7 +180,8 @@ export default function App() {
                                                         <path d="M22,15.04C22,17.23 20.24,19 18.07,19H5.93C3.76,19 2,17.23 2,15.04C2,13.07 3.43,11.44 5.31,11.14C5.28,11 5.27,10.86 5.27,10.71C5.27,9.33 6.38,8.2 7.76,8.2C8.37,8.2 8.94,8.43 9.37,8.8C10.14,7.05 11.13,5.44 13.91,5.44C17.28,5.44 18.87,8.06 18.87,10.83C18.87,10.94 18.87,11.06 18.86,11.17C20.65,11.54 22,13.13 22,15.04Z" />
                                                     </svg>
                                                 </div>
-                                                <span className="transition-all duration-500 group-hover:opacity-0">Resume</span>
+                                                <span className="transition-all duration-500 group-hover:opacity-0 hidden sm:inline">Resume</span>
+                                                <span className="transition-all duration-500 group-hover:opacity-0 sm:hidden">CV</span>
                                             </a>
                                         </motion.div>
 
@@ -213,7 +214,7 @@ export default function App() {
                                                 <p className="text-[#CD5C5C]/50">Explore my work</p>
                                             </motion.div>
 
-                                            <div className="flex-1 grid grid-cols-1 md:grid-cols-2 gap-8 w-full max-w-7xl mx-auto items-center">
+                                            <div className="flex-1 grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-8 w-full max-w-7xl mx-auto items-center overflow-y-auto md:overflow-hidden py-4 md:py-0">
                                                 <AnimatedFolder
                                                     title="About Me"
                                                     projects={[
@@ -244,19 +245,19 @@ export default function App() {
                                     <section className="sticky top-0 h-screen w-full bg-[#0a0a0a] z-20 flex flex-col items-center justify-center rounded-t-[3rem] border-t border-white/10 overflow-hidden shadow-[0_-50px_100px_rgba(0,0,0,0.7)]">
                                         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-[#8B0000]/10 via-[#0a0a0a] to-[#0a0a0a]"></div>
 
-                                        <div className="relative z-10 container mx-auto px-4 h-full flex flex-col items-center justify-center">
-                                            <div className="flex flex-col md:flex-row items-center gap-12 md:gap-24">
-                                                <div className="text-center md:text-left max-w-lg">
-                                                    <h2 className="text-5xl md:text-7xl font-black text-white mb-6 tracking-tighter">
+                                        <div className="relative z-10 container mx-auto px-4 h-full flex flex-col items-center justify-center py-20">
+                                            <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-24 w-full justify-center">
+                                                <div className="text-center lg:text-left max-w-lg px-4">
+                                                    <h2 className="text-4xl sm:text-5xl lg:text-7xl font-black text-white mb-4 sm:mb-6 tracking-tighter">
                                                         Let's <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#CD5C5C] to-[#8B0000]">Connect</span>
                                                     </h2>
-                                                    <p className="text-xl text-white/60 font-light leading-relaxed mb-8">
+                                                    <p className="text-lg sm:text-xl text-white/60 font-light leading-relaxed mb-6 sm:mb-8">
                                                         I'm always open to discussing product design work or partnership opportunities. Let's create something amazing together.
                                                     </p>
                                                 </div>
 
-                                                <div className="relative">
-                                                    <div className="absolute -inset-4 bg-[#8B0000]/20 rounded-full blur-[100px] -z-10"></div>
+                                                <div className="relative transform scale-90 sm:scale-100">
+                                                    <div className="absolute -inset-4 bg-[#8B0000]/20 rounded-full blur-[80px] sm:blur-[100px] -z-10"></div>
                                                     <ContactCard />
                                                 </div>
                                             </div>
@@ -301,9 +302,9 @@ export default function App() {
                                         </div>
 
                                         {/* Content Overlay */}
-                                        <div className="container mx-auto px-6 relative z-10 flex h-full items-center justify-end pt-20 pb-4">
-                                            {/* Right Side Container for Text + Card */}
-                                            <div className="md:w-1/2 w-full flex flex-col gap-4 pr-4 md:pr-12 justify-center h-full">
+                                        <div className="container mx-auto px-4 sm:px-6 relative z-10 flex h-full items-center justify-center lg:justify-end pt-20 pb-4">
+                                            {/* Side Container for Text + Card */}
+                                            <div className="lg:w-1/2 w-full flex flex-col gap-4 px-2 sm:px-4 lg:pr-12 justify-center h-full items-center lg:items-end">
 
                                                 {/* Title Section with Floating Animation */}
                                                 <motion.div
@@ -318,10 +319,10 @@ export default function App() {
                                                         x: { duration: 0.8 },
                                                         y: { repeat: Infinity, duration: 4, ease: "easeInOut" }
                                                     }}
-                                                    className="text-right"
+                                                    className="text-center lg:text-right"
                                                 >
-                                                    <h2 className="text-5xl md:text-7xl font-black text-white mb-2 tracking-tighter drop-shadow-2xl leading-none">
-                                                        Who is <br />
+                                                    <h2 className="text-4xl sm:text-5xl md:text-7xl font-black text-white mb-2 tracking-tighter drop-shadow-2xl leading-none">
+                                                        Who is <br className="sm:hidden" />
                                                         <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#CD5C5C] to-[#8B0000]">bas1c?</span>
                                                     </h2>
                                                 </motion.div>

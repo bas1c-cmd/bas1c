@@ -65,35 +65,37 @@ export const ProjectsSection = () => {
 
     return (
         <div className='min-h-screen bg-black'>
-            {/* Project Navigation - Updated with arrows */}
-            <div className='fixed top-20 right-4 z-50 flex flex-col gap-3'>
+            {/* Project Navigation - Updated for Mobile Accessibility */}
+            <div className='fixed bottom-8 left-1/2 -translate-x-1/2 md:top-20 md:right-4 md:left-auto md:translate-x-0 z-50 flex flex-row md:flex-col items-center gap-3 bg-black/40 md:bg-transparent backdrop-blur-md md:backdrop-blur-none p-2 md:p-0 rounded-2xl md:rounded-none border border-white/10 md:border-none'>
                 {/* Previous Button */}
                 <button
                     onClick={goToPrevious}
-                    className='p-3 rounded-lg bg-[#8B0000]/80 text-white hover:bg-[#CD5C5C] transition-all shadow-lg shadow-[#8B0000]/30'
+                    className='p-3 rounded-xl bg-[#8B0000]/90 text-white hover:bg-[#CD5C5C] transition-all shadow-lg active:scale-95'
                     aria-label="Previous project"
                 >
                     <ChevronLeft className="w-5 h-5" />
                 </button>
 
-                {/* Project Indicators */}
-                {projects.map((project, index) => (
-                    <button
-                        key={project.id}
-                        onClick={() => setCurrentProjectIndex(index)}
-                        className={`px-4 py-2 rounded-lg transition-all ${currentProjectIndex === index
-                            ? 'bg-[#CD5C5C] text-white shadow-lg shadow-[#CD5C5C]/50'
-                            : 'bg-black/50 text-[#CD5C5C] border border-[#CD5C5C]/30 hover:bg-[#8B0000]/20'
-                            }`}
-                    >
-                        {index + 1}
-                    </button>
-                ))}
+                {/* Project Indicators - Hidden on extra small, shown as dots or numbers */}
+                <div className="flex flex-row md:flex-col gap-2 px-2">
+                    {projects.map((project, index) => (
+                        <button
+                            key={project.id}
+                            onClick={() => setCurrentProjectIndex(index)}
+                            className={`w-10 h-10 md:w-auto md:h-auto md:px-4 md:py-2 rounded-lg transition-all flex items-center justify-center font-bold font-mono ${currentProjectIndex === index
+                                ? 'bg-[#CD5C5C] text-white shadow-lg shadow-[#CD5C5C]/50 scale-110 md:scale-100'
+                                : 'bg-black/50 text-[#CD5C5C] border border-[#CD5C5C]/30 hover:bg-[#8B0000]/20'
+                                }`}
+                        >
+                            {index + 1}
+                        </button>
+                    ))}
+                </div>
 
                 {/* Next Button */}
                 <button
                     onClick={goToNext}
-                    className='p-3 rounded-lg bg-[#8B0000]/80 text-white hover:bg-[#CD5C5C] transition-all shadow-lg shadow-[#8B0000]/30'
+                    className='p-3 rounded-xl bg-[#8B0000]/90 text-white hover:bg-[#CD5C5C] transition-all shadow-lg active:scale-95'
                     aria-label="Next project"
                 >
                     <ChevronRight className="w-5 h-5" />
@@ -130,11 +132,11 @@ export const ProjectsSection = () => {
                             {/* Technologies */}
                             <div className='mb-8'>
                                 <h3 className='text-xl font-semibold mb-4 text-[#CD5C5C]'>Technologies Used</h3>
-                                <div className='flex flex-wrap gap-3'>
+                                <div className='flex flex-wrap gap-2 sm:gap-3'>
                                     {currentProject.technologies.map((tech) => (
                                         <span
                                             key={tech}
-                                            className='px-4 py-2 bg-[#8B0000]/20 border border-[#CD5C5C]/30 rounded-lg text-[#CD5C5C] font-medium'
+                                            className='px-3 py-1.5 sm:px-4 sm:py-2 bg-[#8B0000]/20 border border-[#CD5C5C]/30 rounded-lg text-[#CD5C5C] text-sm sm:text-base font-medium'
                                         >
                                             {tech}
                                         </span>
