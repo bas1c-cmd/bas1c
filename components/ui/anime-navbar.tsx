@@ -34,7 +34,7 @@ export function AnimeNavBar({ items, className, defaultActive = "Home", activeTa
     <div className={cn("fixed top-5 left-0 right-0 z-[9999]", className)}>
       <div className="flex justify-center pt-6">
         <motion.div
-          className="flex items-center gap-1 sm:gap-3 bg-[#1a0505]/80 border border-[#8B0000]/20 backdrop-blur-lg py-1.5 px-1.5 sm:py-2 sm:px-2 rounded-full shadow-lg relative shadow-[#8B0000]/20 max-w-[95vw]"
+          className="flex items-center gap-1 md:gap-3 bg-[#1a0505]/80 border border-[#8B0000]/20 backdrop-blur-lg py-1.5 px-1.5 md:py-2 md:px-2 rounded-full shadow-lg relative shadow-[#8B0000]/20"
           initial={{ y: -20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{
@@ -43,8 +43,8 @@ export function AnimeNavBar({ items, className, defaultActive = "Home", activeTa
             damping: 20,
           }}
         >
-          <div className="pr-2 sm:pr-4 border-r border-white/10 mr-0.5 sm:mr-1">
-            <img src="/logo.png" alt="Logo" className="w-6 h-6 sm:w-8 sm:h-8 object-cover rounded-full" />
+          <div className="pr-2 md:pr-4 border-r border-white/10 mr-0.5 md:mr-1">
+            <img src="/logo.png" alt="Logo" className="w-6 h-6 md:w-8 md:h-8 object-cover rounded-full" />
           </div>
           {items.map((item) => {
             const Icon = item.icon
@@ -73,8 +73,8 @@ export function AnimeNavBar({ items, className, defaultActive = "Home", activeTa
                 onMouseEnter={() => setHoveredTab(item.name)}
                 onMouseLeave={() => setHoveredTab(null)}
                 className={cn(
-                  "relative cursor-pointer text-xs sm:text-sm font-semibold px-4 py-2 sm:px-6 sm:py-3 rounded-full transition-all duration-300",
-                  "text-white/70 hover:text-white no-underline flex items-center",
+                  "relative cursor-pointer text-xs md:text-sm font-semibold px-3 py-2 md:px-6 md:py-3 rounded-full transition-all duration-300",
+                  "text-white/70 hover:text-white no-underline flex items-center gap-1 md:gap-2",
                   isActive && "text-white"
                 )}
               >
@@ -144,9 +144,9 @@ export function AnimeNavBar({ items, className, defaultActive = "Home", activeTa
                       damping: 30,
                     }}
                   >
-                    <div className="relative w-8 h-8 sm:w-12 sm:h-12">
+                    <div className="relative w-12 h-12">
                       <motion.div
-                        className="absolute w-6 h-6 sm:w-10 sm:h-10 bg-white rounded-full left-1/2 -translate-x-1/2"
+                        className="absolute w-10 h-10 bg-white rounded-full left-1/2 -translate-x-1/2"
                         animate={
                           hoveredTab ? {
                             scale: [1, 1.1, 1],

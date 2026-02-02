@@ -68,8 +68,8 @@
   gap: 8px;
   padding: 8px 16px;
   border-radius: 20px;
-  background: rgba(255,255,255,0.2);
-  border: 1px solid rgba(255,255,255,0.4);
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.4);
   transition: all 0.2s ease-in-out;
   cursor: pointer;
   text-decoration: none;
@@ -77,7 +77,7 @@
 
 .view-more:hover {
   transform: translate3d(0, 0, 10px);
-  background: rgba(255,255,255,0.4);
+  background: rgba(255, 255, 255, 0.4);
 }
 
 .view-more-button {
@@ -235,6 +235,72 @@
   transform: translate3d(0, 0, 100px);
 }
 
+
 .contact-parent:hover .contact-card .logo-container .circle5 {
   transform: translate3d(0, 0, 120px);
+}
+
+/* Mobile Responsive Styles */
+@media (max-width: 768px) {
+  .contact-parent {
+    width: 280px;
+    height: 300px;
+  }
+
+  .content-container {
+    padding: 80px 40px 0px 20px;
+  }
+
+  .card-title {
+    font-size: 20px;
+  }
+
+  .card-text {
+    font-size: 13px;
+    margin-top: 15px;
+  }
+
+  .circle1 {
+    width: 140px;
+  }
+
+  .circle2 {
+    width: 110px;
+  }
+
+  .circle3 {
+    width: 85px;
+  }
+
+  .circle4 {
+    width: 60px;
+  }
+
+  .circle5 {
+    width: 40px;
+    height: 40px;
+  }
+
+  .social-button {
+    width: 32px;
+    padding: 6px;
+  }
+
+  .social-svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  .view-more {
+    padding: 6px 12px;
+  }
+
+  .view-more-button {
+    font-size: 10px;
+  }
+
+  .view-more-svg {
+    width: 14px;
+    height: 14px;
+  }
 }
