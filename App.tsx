@@ -11,6 +11,9 @@ import { ContactCard } from "./components/ui/contact-card";
 import { AnimeNavBar, NavItem } from "./components/ui/anime-navbar";
 import { Home, User, Briefcase, FileDown, ArrowRight, Mail, Instagram } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import { ScrollProgressBar } from "./components/ui/scroll-progress-bar";
+import { ParallaxLayer } from "./components/ui/parallax-section";
+import { RevealText } from "./components/ui/reveal-text";
 
 export default function App() {
     const [activeSection, setActiveSection] = useState("Home");
@@ -55,9 +58,15 @@ export default function App() {
     }, []);
 
     const navItems: NavItem[] = [
-        { name: "Home", url: "#", icon: Home },
-        { name: "About", url: "#", icon: User },
-        { name: "Projects", url: "#", icon: Briefcase },
+        { name: "Home", url: "#home", icon: Home },
+        { name: "About", url: "#about", icon: User },
+        { name: "Projects", url: "#projects", icon: Briefcase },
+    ];
+
+    const scrollSections = [
+        { name: 'Home', color: '#8B0000' },
+        { name: 'About', color: '#CD5C5C' },
+        { name: 'Projects', color: '#8B0000' },
     ];
 
     const handleNavChange = (name: string) => {
@@ -67,8 +76,19 @@ export default function App() {
     };
 
     return (
-        <ReactLenis root>
-            <main className="bg-black font-sans selection:bg-indigo-500/30">
+        <ReactLenis
+            root
+            options={{
+                lerp: 0.05,
+                duration: 1.5,
+                smoothWheel: true,
+                wheelMultiplier: 1,
+                touchMultiplier: 2,
+            }}
+        >
+            <main className="min-h-screen bg-black font-sans selection:bg-indigo-500/30">
+                {/* Scroll Progress Indicator */}
+                <ScrollProgressBar sections={scrollSections} />
 
                 {/* Transition Loader */}
                 {isLoading && <Loader />}
@@ -87,25 +107,27 @@ export default function App() {
                         {activeSection === "Home" && (
                             <motion.div
                                 key="home"
-                                initial={{ opacity: 0 }}
-                                animate={{ opacity: 1 }}
-                                exit={{ opacity: 0 }}
-                                transition={{ duration: 0.5 }}
+                                initial={{ opacity: 0, scale: 0.95 }}
+                                animate={{ opacity: 1, scale: 1 }}
+                                exit={{ opacity: 0, scale: 1.05 }}
+                                transition={{ duration: 0.6, ease: "easeInOut" }}
                             >
                                 <>
                                     {/* SLIDE 1: HERO INTRO */}
                                     <section className="sticky top-0 h-screen w-full bg-black flex flex-col items-center justify-center overflow-hidden z-0 shadow-2xl">
-                                        <div className="absolute inset-0 w-full h-full z-0">
+                                        {/* Parallax Video Background */}
+                                        <ParallaxLayer speed={0.5} className="absolute inset-0 w-full h-full z-0">
                                             <video
                                                 autoPlay
                                                 loop
                                                 muted
                                                 playsInline
-                                                className="w-full h-full object-cover"
+                                                className="w-full h-full object-cover opacity-80"
                                             >
                                                 <source src="https://res.cloudinary.com/datcymrsj/video/upload/v1769637133/kling_20260126_Image_to_Video_infinity_l_5272_0_cyjbqx.mp4" type="video/mp4" />
                                             </video>
-                                        </div>
+                                            <div className="absolute inset-0 bg-black/40"></div>
+                                        </ParallaxLayer>
 
                                         <motion.div
                                             className="absolute top-1/2 left-4 md:left-8 lg:left-10 -translate-y-1/2 z-10 w-[90%] md:w-auto"
@@ -278,27 +300,26 @@ export default function App() {
                         {activeSection === "About" && (
                             <motion.div
                                 key="about"
-                                initial={{ opacity: 0 }}
-                                animate={{ opacity: 1 }}
-                                exit={{ opacity: 0 }}
-                                transition={{ duration: 0.5 }}
+                                initial={{ opacity: 0, x: 100 }}
+                                animate={{ opacity: 1, x: 0 }}
+                                exit={{ opacity: 0, x: -100 }}
+                                transition={{ duration: 0.7, ease: "easeInOut" }}
                             >
                                 <div className="w-full bg-black">
                                     <section className="h-screen relative flex items-center justify-center overflow-hidden bg-black">
-                                        {/* Video Background */}
-                                        <div className="absolute inset-0 w-full h-full z-0">
+                                        {/* Parallax Video Background */}
+                                        <ParallaxLayer speed={0.6} className="absolute inset-0 w-full h-full">
                                             <video
                                                 autoPlay
                                                 loop
                                                 muted
                                                 playsInline
-                                                className="w-full h-full object-cover"
+                                                className="w-full h-full object-cover opacity-70"
                                             >
-                                                <source src="https://res.cloudinary.com/datcymrsj/video/upload/v1769637728/kling_20260127_Image_to_Video_the_caract_1497_0_qv0wiq.mp4" type="video/mp4" />
+                                                <source src="https://res.cloudinary.com/datcymrsj/video/upload/v1769636750/kling_20260127_Image_to_Video_pro_1_7_xszqvd.mp4" type="video/mp4" />
                                             </video>
-                                            {/* Subtle vignette */}
-                                            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-transparent to-black/80"></div>
-                                        </div>
+                                            <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/80"></div>
+                                        </ParallaxLayer>
 
                                         {/* Content Overlay */}
                                         <div className="container mx-auto px-6 relative z-10 flex h-full items-center justify-end pt-20 pb-4">
@@ -350,10 +371,10 @@ export default function App() {
                         {activeSection === "Projects" && (
                             <motion.div
                                 key="projects"
-                                initial={{ opacity: 0 }}
-                                animate={{ opacity: 1 }}
-                                exit={{ opacity: 0 }}
-                                transition={{ duration: 0.5 }}
+                                initial={{ opacity: 0, y: 50 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                exit={{ opacity: 0, y: -50 }}
+                                transition={{ duration: 0.6, ease: "easeInOut" }}
                             >
                                 <ProjectsSection />
                             </motion.div>
