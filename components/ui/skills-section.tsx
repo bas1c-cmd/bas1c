@@ -41,20 +41,20 @@ const itemVariants = {
 
 export function SkillsSection() {
     return (
-        <SpotlightContainer className="relative min-h-screen py-12 md:py-20 bg-black text-white overflow-hidden">
-            <div className="container mx-auto px-4 md:px-6 relative z-10">
+        <SpotlightContainer className="relative min-h-screen py-20 bg-black text-white overflow-hidden">
+            <div className="container mx-auto px-6 relative z-10">
 
                 {/* Section Title */}
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    className="mb-12 md:mb-16 text-center"
+                    className="mb-16 text-center"
                 >
-                    <h2 className="text-3xl md:text-5xl lg:text-6xl font-black mb-3 md:mb-4 tracking-tighter">
+                    <h2 className="text-4xl md:text-6xl font-black mb-4 tracking-tighter">
                         Skills & <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#CD5C5C] to-[#8B0000]">Certificates</span>
                     </h2>
-                    <p className="text-white/50 max-w-2xl mx-auto text-sm md:text-base">
+                    <p className="text-white/50 max-w-2xl mx-auto">
                         My technical arsenal and the roadmap for my future growth.
                     </p>
                 </motion.div>
@@ -64,16 +64,16 @@ export function SkillsSection() {
                     initial="hidden"
                     whileInView="visible"
                     viewport={{ once: true, margin: "-100px" }}
-                    className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-12"
+                    className="grid grid-cols-1 lg:grid-cols-3 gap-12"
                 >
 
                     {/* COLUMN 1: CURRENT SKILLS */}
-                    <motion.div variants={itemVariants} className="bg-zinc-900/30 border border-white/10 rounded-2xl md:rounded-3xl p-6 md:p-8 backdrop-blur-sm hover:border-[#CD5C5C]/30 transition-colors duration-500">
-                        <div className="flex items-center gap-3 mb-6 md:mb-8">
-                            <div className="p-2 md:p-3 rounded-full bg-[#CD5C5C]/10 border border-[#CD5C5C]/20 text-[#CD5C5C]">
-                                <CheckCircle2 className="w-5 h-5 md:w-6 md:h-6" />
+                    <motion.div variants={itemVariants} className="bg-zinc-900/30 border border-white/10 rounded-3xl p-8 backdrop-blur-sm hover:border-[#CD5C5C]/30 transition-colors duration-500">
+                        <div className="flex items-center gap-3 mb-8">
+                            <div className="p-3 rounded-full bg-[#CD5C5C]/10 border border-[#CD5C5C]/20 text-[#CD5C5C]">
+                                <CheckCircle2 className="w-6 h-6" />
                             </div>
-                            <h3 className="text-xl md:text-2xl font-bold">Technical Proficiency</h3>
+                            <h3 className="text-2xl font-bold">Technical Proficiency</h3>
                         </div>
 
                         <div className="space-y-6">
@@ -98,12 +98,12 @@ export function SkillsSection() {
                     </motion.div>
 
                     {/* COLUMN 2: FUTURE LEARNING */}
-                    <motion.div variants={itemVariants} className="bg-zinc-900/30 border border-white/10 rounded-2xl md:rounded-3xl p-6 md:p-8 backdrop-blur-sm hover:border-indigo-500/30 transition-colors duration-500">
-                        <div className="flex items-center gap-3 mb-6 md:mb-8">
-                            <div className="p-2 md:p-3 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-indigo-400">
-                                <Hourglass className="w-5 h-5 md:w-6 md:h-6" />
+                    <motion.div variants={itemVariants} className="bg-zinc-900/30 border border-white/10 rounded-3xl p-8 backdrop-blur-sm hover:border-indigo-500/30 transition-colors duration-500">
+                        <div className="flex items-center gap-3 mb-8">
+                            <div className="p-3 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-indigo-400">
+                                <Hourglass className="w-6 h-6" />
                             </div>
-                            <h3 className="text-xl md:text-2xl font-bold">Future Learning</h3>
+                            <h3 className="text-2xl font-bold">Future Learning</h3>
                         </div>
 
                         <div className="space-y-4">
