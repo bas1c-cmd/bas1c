@@ -11,9 +11,6 @@ import { ContactCard } from "./components/ui/contact-card";
 import { AnimeNavBar, NavItem } from "./components/ui/anime-navbar";
 import { Home, User, Briefcase, FileDown, ArrowRight, Mail, Instagram } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ScrollProgressBar } from "./components/ui/scroll-progress-bar";
-import { ParallaxLayer } from "./components/ui/parallax-section";
-import { RevealText } from "./components/ui/reveal-text";
 
 export default function App() {
     const [activeSection, setActiveSection] = useState("Home");
@@ -58,15 +55,9 @@ export default function App() {
     }, []);
 
     const navItems: NavItem[] = [
-        { name: "Home", url: "#home", icon: Home },
-        { name: "About", url: "#about", icon: User },
-        { name: "Projects", url: "#projects", icon: Briefcase },
-    ];
-
-    const scrollSections = [
-        { name: 'Home', color: '#8B0000' },
-        { name: 'About', color: '#CD5C5C' },
-        { name: 'Projects', color: '#8B0000' },
+        { name: "Home", url: "#", icon: Home },
+        { name: "About", url: "#", icon: User },
+        { name: "Projects", url: "#", icon: Briefcase },
     ];
 
     const handleNavChange = (name: string) => {
@@ -76,19 +67,8 @@ export default function App() {
     };
 
     return (
-        <ReactLenis
-            root
-            options={{
-                lerp: 0.05,
-                duration: 1.5,
-                smoothWheel: true,
-                wheelMultiplier: 1,
-                touchMultiplier: 2,
-            }}
-        >
-            <main className="min-h-screen bg-black font-sans selection:bg-indigo-500/30">
-                {/* Scroll Progress Indicator */}
-                <ScrollProgressBar sections={scrollSections} />
+        <ReactLenis root>
+            <main className="bg-black font-sans selection:bg-indigo-500/30">
 
                 {/* Transition Loader */}
                 {isLoading && <Loader />}
@@ -107,44 +87,42 @@ export default function App() {
                         {activeSection === "Home" && (
                             <motion.div
                                 key="home"
-                                initial={{ opacity: 0, scale: 0.95 }}
-                                animate={{ opacity: 1, scale: 1 }}
-                                exit={{ opacity: 0, scale: 1.05 }}
-                                transition={{ duration: 0.6, ease: "easeInOut" }}
+                                initial={{ opacity: 0 }}
+                                animate={{ opacity: 1 }}
+                                exit={{ opacity: 0 }}
+                                transition={{ duration: 0.5 }}
                             >
                                 <>
                                     {/* SLIDE 1: HERO INTRO */}
                                     <section className="sticky top-0 h-screen w-full bg-black flex flex-col items-center justify-center overflow-hidden z-0 shadow-2xl">
-                                        {/* Parallax Video Background */}
-                                        <ParallaxLayer speed={0.5} className="absolute inset-0 w-full h-full z-0">
+                                        <div className="absolute inset-0 w-full h-full z-0">
                                             <video
                                                 autoPlay
                                                 loop
                                                 muted
                                                 playsInline
-                                                className="w-full h-full object-cover opacity-80"
+                                                className="w-full h-full object-cover"
                                             >
                                                 <source src="https://res.cloudinary.com/datcymrsj/video/upload/v1769637133/kling_20260126_Image_to_Video_infinity_l_5272_0_cyjbqx.mp4" type="video/mp4" />
                                             </video>
-                                            <div className="absolute inset-0 bg-black/40"></div>
-                                        </ParallaxLayer>
+                                        </div>
 
                                         <motion.div
-                                            className="absolute top-1/2 left-4 md:left-8 lg:left-10 -translate-y-1/2 z-10 w-[90%] md:w-auto"
+                                            className="absolute top-1/2 left-10 -translate-y-1/2 z-10"
                                             initial={{ opacity: 0, x: -100 }}
                                             animate={{ opacity: 1, x: 0 }}
                                             transition={{ duration: 0.8, ease: "easeOut" }}
                                         >
                                             <div className="relative">
                                                 {/* Animated corner borders */}
-                                                <div className="absolute -top-2 -left-2 w-4 h-4 md:w-6 md:h-6 lg:w-8 lg:h-8 border-t-2 border-l-2 md:border-t-4 md:border-l-4 border-[#8B0000] animate-pulse"></div>
-                                                <div className="absolute -bottom-2 -right-2 w-4 h-4 md:w-6 md:h-6 lg:w-8 lg:h-8 border-b-2 border-r-2 md:border-b-4 md:border-r-4 border-[#8B0000] animate-pulse"></div>
+                                                <div className="absolute -top-2 -left-2 w-8 h-8 border-t-4 border-l-4 border-[#8B0000] animate-pulse"></div>
+                                                <div className="absolute -bottom-2 -right-2 w-8 h-8 border-b-4 border-r-4 border-[#8B0000] animate-pulse"></div>
 
                                                 {/* Glowing background */}
                                                 <div className="absolute inset-0 bg-gradient-to-r from-[#8B0000]/10 via-transparent to-transparent blur-xl"></div>
 
                                                 {/* Content container */}
-                                                <div className="relative px-4 py-3 md:px-6 md:py-4 lg:px-8 lg:py-6 border-l-2 border-[#8B0000]/50">
+                                                <div className="relative px-8 py-6 border-l-2 border-[#8B0000]/50">
                                                     {/* Main title */}
                                                     <div className="relative mb-4">
                                                         <MagneticText
@@ -168,10 +146,10 @@ export default function App() {
                                                         animate={{ opacity: 1 }}
                                                         transition={{ delay: 0.8, duration: 0.6 }}
                                                     >
-                                                        <div className="text-sm md:text-xl lg:text-2xl font-bold tracking-[0.15em] md:tracking-[0.3em] text-[#CD5C5C] drop-shadow-[0_0_15px_rgba(205,92,92,0.6)] uppercase">
+                                                        <div className="text-2xl font-bold tracking-[0.3em] text-[#CD5C5C] drop-shadow-[0_0_15px_rgba(205,92,92,0.6)] uppercase">
                                                             AI Engineer
                                                         </div>
-                                                        <div className="text-xs md:text-base lg:text-lg text-[#CD5C5C]/80 tracking-wide md:tracking-widest font-medium flex items-center gap-2">
+                                                        <div className="text-lg tracking-[0.2em] text-[#CD5C5C]/80 font-medium">
                                                             Automation • Linux • Dev
                                                         </div>
                                                     </motion.div>
@@ -184,12 +162,12 @@ export default function App() {
                                             initial={{ opacity: 0, scale: 0.8 }}
                                             animate={{ opacity: 1, scale: 1 }}
                                             transition={{ delay: 1.2, duration: 0.5 }}
-                                            className="absolute bottom-6 right-4 md:bottom-10 md:right-10 z-10"
+                                            className="absolute bottom-10 right-10 z-10"
                                         >
                                             <a
                                                 href="./resume.pdf"
                                                 download
-                                                className="group flex items-center gap-2 md:gap-3 bg-[#4A0E0E] text-[#CD5C5C] px-3 py-2 md:px-6 md:py-3 rounded-xl md:rounded-2xl font-bold text-sm md:text-xl border border-[#8B0000]/30 cursor-pointer transition-all duration-300 hover:bg-[#8B0000] hover:text-white hover:border-[#CD5C5C] active:scale-95 shadow-[0_0_20px_rgba(139,0,0,0.3)]"
+                                                className="group flex items-center gap-3 bg-[#4A0E0E] text-[#CD5C5C] px-6 py-3 rounded-2xl font-bold text-xl border border-[#8B0000]/30 cursor-pointer transition-all duration-300 hover:bg-[#8B0000] hover:text-white hover:border-[#CD5C5C] active:scale-95 shadow-[0_0_20px_rgba(139,0,0,0.3)]"
                                             >
                                                 <div className="transition-transform duration-500 group-hover:scale-125">
                                                     <svg
@@ -210,7 +188,7 @@ export default function App() {
                                             initial={{ opacity: 0, y: 20 }}
                                             animate={{ opacity: 1, y: 0 }}
                                             transition={{ delay: 1, duration: 1 }}
-                                            className="absolute bottom-12 left-1/2 -translate-x-1/2 text-[#CD5C5C]/70 text-sm tracking-widest uppercase flex flex-col items-center gap-2"
+                                            className="absolute bottom-20 md:bottom-12 left-1/2 -translate-x-1/2 text-[#CD5C5C]/70 text-sm tracking-widest uppercase flex flex-col items-center gap-2 z-10 hidden sm:flex"
                                         >
                                             <span>Scroll to Explore</span>
                                             <motion.div
@@ -268,11 +246,11 @@ export default function App() {
 
                                         <div className="relative z-10 container mx-auto px-4 h-full flex flex-col items-center justify-center">
                                             <div className="flex flex-col md:flex-row items-center gap-12 md:gap-24">
-                                                <div className="flex-1 px-4 md:px-0">
-                                                    <h2 className="text-3xl md:text-5xl lg:text-7xl font-black text-white mb-4 md:mb-6 tracking-tighter">
+                                                <div className="text-center md:text-left max-w-lg">
+                                                    <h2 className="text-5xl md:text-7xl font-black text-white mb-6 tracking-tighter">
                                                         Let's <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#CD5C5C] to-[#8B0000]">Connect</span>
                                                     </h2>
-                                                    <p className="text-base md:text-xl text-white/60 font-light leading-relaxed mb-6 md:mb-8">
+                                                    <p className="text-xl text-white/60 font-light leading-relaxed mb-8">
                                                         I'm always open to discussing product design work or partnership opportunities. Let's create something amazing together.
                                                     </p>
                                                 </div>
@@ -283,7 +261,7 @@ export default function App() {
                                                 </div>
                                             </div>
 
-                                            <footer className="absolute bottom-4 md:bottom-8 w-full text-center text-white/20 text-xs md:text-sm font-light tracking-widest uppercase">
+                                            <footer className="absolute bottom-8 w-full text-center text-white/20 text-sm font-light tracking-widest uppercase">
                                                 © 2024 Dev Portfolio • Crafted with Passion
                                             </footer>
                                         </div>
@@ -300,26 +278,27 @@ export default function App() {
                         {activeSection === "About" && (
                             <motion.div
                                 key="about"
-                                initial={{ opacity: 0, x: 100 }}
-                                animate={{ opacity: 1, x: 0 }}
-                                exit={{ opacity: 0, x: -100 }}
-                                transition={{ duration: 0.7, ease: "easeInOut" }}
+                                initial={{ opacity: 0 }}
+                                animate={{ opacity: 1 }}
+                                exit={{ opacity: 0 }}
+                                transition={{ duration: 0.5 }}
                             >
                                 <div className="w-full bg-black">
                                     <section className="h-screen relative flex items-center justify-center overflow-hidden bg-black">
-                                        {/* Parallax Video Background */}
-                                        <ParallaxLayer speed={0.6} className="absolute inset-0 w-full h-full">
+                                        {/* Video Background */}
+                                        <div className="absolute inset-0 w-full h-full z-0">
                                             <video
                                                 autoPlay
                                                 loop
                                                 muted
                                                 playsInline
-                                                className="w-full h-full object-cover opacity-70"
+                                                className="w-full h-full object-cover"
                                             >
-                                                <source src="https://res.cloudinary.com/datcymrsj/video/upload/v1769636750/kling_20260127_Image_to_Video_pro_1_7_xszqvd.mp4" type="video/mp4" />
+                                                <source src="https://res.cloudinary.com/datcymrsj/video/upload/v1769637728/kling_20260127_Image_to_Video_the_caract_1497_0_qv0wiq.mp4" type="video/mp4" />
                                             </video>
-                                            <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/80"></div>
-                                        </ParallaxLayer>
+                                            {/* Subtle vignette */}
+                                            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-transparent to-black/80"></div>
+                                        </div>
 
                                         {/* Content Overlay */}
                                         <div className="container mx-auto px-6 relative z-10 flex h-full items-center justify-end pt-20 pb-4">
@@ -371,10 +350,10 @@ export default function App() {
                         {activeSection === "Projects" && (
                             <motion.div
                                 key="projects"
-                                initial={{ opacity: 0, y: 50 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                exit={{ opacity: 0, y: -50 }}
-                                transition={{ duration: 0.6, ease: "easeInOut" }}
+                                initial={{ opacity: 0 }}
+                                animate={{ opacity: 1 }}
+                                exit={{ opacity: 0 }}
+                                transition={{ duration: 0.5 }}
                             >
                                 <ProjectsSection />
                             </motion.div>

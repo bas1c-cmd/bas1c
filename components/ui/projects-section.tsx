@@ -66,37 +66,43 @@ export const ProjectsSection = () => {
     return (
         <div className='min-h-screen bg-black'>
             {/* Project Navigation - Updated with arrows */}
-            <div className='fixed top-20 md:top-24 right-2 md:right-4 z-50 flex flex-col gap-2 md:gap-3'>
+            {/* Project Navigation - Responsive: Bottom bar on mobile, Right sidebar on desktop */}
+            <div className='fixed z-50 flex gap-3 
+                bottom-6 left-0 right-0 justify-center items-center flex-row bg-black/60 backdrop-blur-md py-4 md:py-0 md:bg-transparent md:backdrop-blur-none
+                md:top-20 md:right-4 md:bottom-auto md:left-auto md:flex-col md:justify-start
+            '>
                 {/* Previous Button */}
                 <button
                     onClick={goToPrevious}
-                    className='p-2 md:p-3 rounded-lg bg-[#8B0000]/80 text-white hover:bg-[#CD5C5C] transition-all shadow-lg shadow-[#8B0000]/30'
+                    className='p-3 rounded-lg bg-[#8B0000]/80 text-white hover:bg-[#CD5C5C] transition-all shadow-lg shadow-[#8B0000]/30 active:scale-95'
                     aria-label="Previous project"
                 >
-                    <ChevronLeft className="w-4 h-4 md:w-5 md:h-5" />
+                    <ChevronLeft className="w-6 h-6 md:w-5 md:h-5" />
                 </button>
 
                 {/* Project Indicators */}
-                {projects.map((project, index) => (
-                    <button
-                        key={project.id}
-                        onClick={() => setCurrentProjectIndex(index)}
-                        className={`px-3 md:px-4 py-1.5 md:py-2 rounded-lg text-sm md:text-base transition-all ${currentProjectIndex === index
-                            ? 'bg-[#CD5C5C] text-white shadow-lg shadow-[#CD5C5C]/50'
-                            : 'bg-black/50 text-[#CD5C5C] border border-[#CD5C5C]/30 hover:bg-[#8B0000]/20'
-                            }`}
-                    >
-                        {index + 1}
-                    </button>
-                ))}
+                <div className="flex flex-row md:flex-col gap-2">
+                    {projects.map((project, index) => (
+                        <button
+                            key={project.id}
+                            onClick={() => setCurrentProjectIndex(index)}
+                            className={`px-4 py-3 md:py-2 rounded-lg transition-all font-medium ${currentProjectIndex === index
+                                ? 'bg-[#CD5C5C] text-white shadow-lg shadow-[#CD5C5C]/50 scale-110 md:scale-100'
+                                : 'bg-black/50 text-[#CD5C5C] border border-[#CD5C5C]/30 hover:bg-[#8B0000]/20'
+                                }`}
+                        >
+                            {index + 1}
+                        </button>
+                    ))}
+                </div>
 
                 {/* Next Button */}
                 <button
                     onClick={goToNext}
-                    className='p-2 md:p-3 rounded-lg bg-[#8B0000]/80 text-white hover:bg-[#CD5C5C] transition-all shadow-lg shadow-[#8B0000]/30'
+                    className='p-3 rounded-lg bg-[#8B0000]/80 text-white hover:bg-[#CD5C5C] transition-all shadow-lg shadow-[#8B0000]/30 active:scale-95'
                     aria-label="Next project"
                 >
-                    <ChevronRight className="w-4 h-4 md:w-5 md:h-5" />
+                    <ChevronRight className="w-6 h-6 md:w-5 md:h-5" />
                 </button>
             </div>
 
@@ -118,23 +124,23 @@ export const ProjectsSection = () => {
                         scrollToExpand='Scroll to Explore'
                         textBlend={true}
                     >
-                        <div className='max-w-4xl mx-auto text-white px-4 md:px-0'>
-                            <h2 className='text-2xl md:text-3xl font-bold mb-4 md:mb-6 text-[#CD5C5C]'>
+                        <div className='max-w-4xl mx-auto text-white'>
+                            <h2 className='text-3xl font-bold mb-6 text-[#CD5C5C]'>
                                 About This Project
                             </h2>
 
-                            <p className='text-sm md:text-lg mb-6 md:mb-8 text-gray-300 leading-relaxed'>
+                            <p className='text-lg mb-8 text-gray-300 leading-relaxed'>
                                 {currentProject.description}
                             </p>
 
                             {/* Technologies */}
-                            <div className='mb-6 md:mb-8'>
-                                <h3 className='text-lg md:text-xl font-semibold mb-3 md:mb-4 text-[#CD5C5C]'>Technologies Used</h3>
-                                <div className='flex flex-wrap gap-2 md:gap-3'>
+                            <div className='mb-8'>
+                                <h3 className='text-xl font-semibold mb-4 text-[#CD5C5C]'>Technologies Used</h3>
+                                <div className='flex flex-wrap gap-3'>
                                     {currentProject.technologies.map((tech) => (
                                         <span
                                             key={tech}
-                                            className='px-3 py-1.5 md:px-4 md:py-2 text-sm md:text-base bg-[#8B0000]/20 border border-[#CD5C5C]/30 rounded-lg text-[#CD5C5C] font-medium'
+                                            className='px-4 py-2 bg-[#8B0000]/20 border border-[#CD5C5C]/30 rounded-lg text-[#CD5C5C] font-medium'
                                         >
                                             {tech}
                                         </span>
