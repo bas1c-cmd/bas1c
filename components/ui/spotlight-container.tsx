@@ -80,7 +80,7 @@ export const SpotlightContainer = ({ children, className = "" }: { children: Rea
     }
 
     return (
-        <div className={`relative group/spotlight ${className}`} onMouseMove={onMouseMove}>
+        <div className={`group/spotlight ${className}`} onMouseMove={onMouseMove}>
             <motion.div
                 className="pointer-events-none absolute inset-0 z-0 transition duration-300 opacity-0 group-hover/spotlight:opacity-100"
                 style={{
