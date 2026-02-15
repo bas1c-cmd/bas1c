@@ -217,3 +217,30 @@
     letter-spacing: 2px;
     color: #CD5C5C;
 }
+
+/* Mobile Responsiveness */
+@media (max-width: 640px) {
+    .uiverse-mythic-card {
+        padding: 16px;
+    }
+
+    .uiverse-mythic-card .card {
+        width: 260px;
+    }
+
+    .uiverse-mythic-card .art {
+        height: 140px;
+    }
+
+    .uiverse-mythic-card .title {
+        font-size: 18px;
+    }
+
+    .uiverse-mythic-card .content {
+        padding: 14px;
+    }
+
+    .uiverse-mythic-card .ability-text {
+        font-size: 12px;
+    }
+}

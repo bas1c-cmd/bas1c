@@ -1,5 +1,5 @@
 import React from "react";
-import { Github, Linkedin, Instagram, ArrowRight, Download } from "lucide-react";
+import { Github, Linkedin, Instagram, ArrowRight, ExternalLink } from "lucide-react";
 import "./contact-card.css";
 
 export function ContactCard() {
@@ -36,9 +36,9 @@ export function ContactCard() {
             </a>
           </div>
 
-          <a href="/resume.pdf" download className="view-more">
+          <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" className="view-more">
             <span className="view-more-button">Resume</span>
-            <Download className="view-more-svg" />
+            <ExternalLink className="view-more-svg" />
           </a>
         </div>
       </div>

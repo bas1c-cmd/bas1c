@@ -46,19 +46,19 @@ export function TimelineSection() {
         target: targetRef,
     });
 
-    const x = useTransform(scrollYProgress, [0, 1], ["1%", "-65%"]);
+    const x = useTransform(scrollYProgress, [0, 1], ["1%", "-75%"]);
 
     return (
         <section ref={targetRef} className="relative h-[300vh] bg-black">
             <SpotlightContainer className="sticky top-0 flex h-screen items-center overflow-hidden">
-                <motion.div style={{ x }} className="flex gap-20 px-20">
+                <motion.div style={{ x }} className="flex gap-6 md:gap-20 px-4 md:px-20">
                     {/* Header Card */}
-                    <div className="flex-shrink-0 w-[400px] flex flex-col justify-center">
-                        <h2 className="text-6xl md:text-8xl font-black text-white tracking-tighter mb-4">
+                    <div className="flex-shrink-0 w-[250px] md:w-[400px] flex flex-col justify-center">
+                        <h2 className="text-4xl sm:text-6xl md:text-8xl font-black text-white tracking-tighter mb-4">
                             My <br />
                             <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#CD5C5C] to-[#8B0000]">Journey</span>
                         </h2>
-                        <p className="text-white/60 text-xl">From foundations to professional mastery. Scroll to explore.</p>
+                        <p className="text-white/60 text-base md:text-xl">From foundations to professional mastery. Scroll to explore.</p>
                         <div className="mt-8 flex gap-2">
                             <div className="w-12 h-1 bg-[#8B0000]"></div>
                             <div className="w-24 h-1 bg-[#CD5C5C]/30"></div>
@@ -68,7 +68,7 @@ export function TimelineSection() {
                     {timelineData.map((item, index) => (
                         <ThreeDCard
                             key={item.year}
-                            className="group relative h-[70vh] w-[80vw] md:w-[600px] flex-shrink-0"
+                            className="group relative h-[60vh] md:h-[70vh] w-[85vw] md:w-[600px] flex-shrink-0"
                         >
                             <JourneyCard
                                 year={item.year}

@@ -220,7 +220,7 @@ const ImageLightbox: React.FC<ImageLightboxProps> = ({
 
     return (
         <div
-            className={cn("fixed inset-0 z-[10000] flex items-center justify-center p-4 md:p-8")}
+            className={cn("fixed inset-0 z-[10000] flex items-center justify-center p-2 sm:p-4 md:p-8")}
             onClick={handleClose}
             style={{
                 opacity: isClosing ? 0 : 1,
@@ -237,7 +237,7 @@ const ImageLightbox: React.FC<ImageLightboxProps> = ({
             <button
                 onClick={(e) => { e.stopPropagation(); handleClose(); }}
                 className={cn(
-                    "absolute top-6 right-6 z-[10001] w-12 h-12 flex items-center justify-center rounded-full bg-[#4A0E0E]/80 backdrop-blur-xl border border-[#8B0000]/30 shadow-2xl text-[#CD5C5C] hover:bg-[#8B0000] hover:text-white transition-all duration-300 cursor-pointer",
+                    "absolute top-4 right-4 md:top-6 md:right-6 z-[10001] w-10 h-10 md:w-12 md:h-12 flex items-center justify-center rounded-full bg-[#4A0E0E]/80 backdrop-blur-xl border border-[#8B0000]/30 shadow-2xl text-[#CD5C5C] hover:bg-[#8B0000] hover:text-white transition-all duration-300 cursor-pointer",
                 )}
                 style={{
                     opacity: animationPhase === "complete" && !isClosing ? 1 : 0,
@@ -252,7 +252,7 @@ const ImageLightbox: React.FC<ImageLightboxProps> = ({
                 onClick={(e) => { e.stopPropagation(); navigatePrev(); }}
                 disabled={!hasPrev || isSliding}
                 className={cn(
-                    "absolute left-4 md:left-10 z-[200] w-14 h-14 flex items-center justify-center rounded-full bg-[#4A0E0E]/80 backdrop-blur-xl border border-[#8B0000]/30 text-[#CD5C5C] hover:scale-110 hover:bg-[#8B0000] hover:text-white active:scale-95 transition-all duration-300 disabled:opacity-0 disabled:pointer-events-none shadow-2xl cursor-pointer",
+                    "absolute left-2 md:left-10 z-[200] w-10 h-10 md:w-14 md:h-14 flex items-center justify-center rounded-full bg-[#4A0E0E]/80 backdrop-blur-xl border border-[#8B0000]/30 text-[#CD5C5C] hover:scale-110 hover:bg-[#8B0000] hover:text-white active:scale-95 transition-all duration-300 disabled:opacity-0 disabled:pointer-events-none shadow-2xl cursor-pointer",
                 )}
                 style={{
                     opacity: animationPhase === "complete" && !isClosing && hasPrev ? 1 : 0,
@@ -267,7 +267,7 @@ const ImageLightbox: React.FC<ImageLightboxProps> = ({
                 onClick={(e) => { e.stopPropagation(); navigateNext(); }}
                 disabled={!hasNext || isSliding}
                 className={cn(
-                    "absolute right-4 md:right-10 z-[200] w-14 h-14 flex items-center justify-center rounded-full bg-[#4A0E0E]/80 backdrop-blur-xl border border-[#8B0000]/30 text-[#CD5C5C] hover:scale-110 hover:bg-[#8B0000] hover:text-white active:scale-95 transition-all duration-300 disabled:opacity-0 disabled:pointer-events-none shadow-2xl cursor-pointer",
+                    "absolute right-2 md:right-10 z-[200] w-10 h-10 md:w-14 md:h-14 flex items-center justify-center rounded-full bg-[#4A0E0E]/80 backdrop-blur-xl border border-[#8B0000]/30 text-[#CD5C5C] hover:scale-110 hover:bg-[#8B0000] hover:text-white active:scale-95 transition-all duration-300 disabled:opacity-0 disabled:pointer-events-none shadow-2xl cursor-pointer",
                 )}
                 style={{
                     opacity: animationPhase === "complete" && !isClosing && hasNext ? 1 : 0,
@@ -312,7 +312,7 @@ const ImageLightbox: React.FC<ImageLightboxProps> = ({
                         </div>
                     </div>
                     <div
-                        className={cn("px-8 py-7 bg-[#1a0505]/90 border-t border-[#8B0000]/20")}
+                        className={cn("px-4 py-5 md:px-8 md:py-7 bg-[#1a0505]/90 border-t border-[#8B0000]/20")}
                         style={{
                             opacity: animationPhase === "complete" && !isClosing ? 1 : 0,
                             transform: animationPhase === "complete" && !isClosing ? "translateY(0)" : "translateY(40px)",
@@ -321,7 +321,7 @@ const ImageLightbox: React.FC<ImageLightboxProps> = ({
                     >
                         <div className="flex items-center justify-between gap-6">
                             <div className="flex-1 min-w-0">
-                                <h3 className="text-2xl font-bold text-[#CD5C5C] tracking-tight truncate">{currentProject?.title}</h3>
+                                <h3 className="text-lg md:text-2xl font-bold text-[#CD5C5C] tracking-tight truncate">{currentProject?.title}</h3>
                                 {currentProject?.description && (
                                     <p className="text-sm text-[#CD5C5C]/70 mt-2">{currentProject.description}</p>
                                 )}
@@ -382,7 +382,7 @@ export const AnimatedFolder: React.FC<AnimatedFolderProps> = ({ title, projects,
         <>
             <div
                 className={cn("relative flex flex-col items-center justify-center p-8 rounded-2xl cursor-pointer bg-[#1a0505]/50 border border-[#8B0000]/20 transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] hover:shadow-2xl hover:shadow-[#8B0000]/20 hover:border-[#CD5C5C]/40 group", className)}
-                style={{ minWidth: "280px", minHeight: "320px", perspective: "1200px", transform: isHovered ? "scale(1.04) rotate(-1.5deg)" : "scale(1) rotate(0deg)" }}
+                style={{ minWidth: "240px", minHeight: "280px", perspective: "1200px", transform: isHovered ? "scale(1.04) rotate(-1.5deg)" : "scale(1) rotate(0deg)" }}
                 onMouseEnter={() => setIsHovered(true)}
                 onMouseLeave={() => setIsHovered(false)}
                 onClick={onClick}

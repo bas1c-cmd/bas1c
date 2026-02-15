@@ -108,21 +108,21 @@ export default function App() {
                                         </div>
 
                                         <motion.div
-                                            className="absolute top-1/2 left-10 -translate-y-1/2 z-10"
+                                            className="absolute top-1/2 left-4 md:left-10 -translate-y-1/2 z-10 max-w-[90vw] md:max-w-none"
                                             initial={{ opacity: 0, x: -100 }}
                                             animate={{ opacity: 1, x: 0 }}
                                             transition={{ duration: 0.8, ease: "easeOut" }}
                                         >
                                             <div className="relative">
                                                 {/* Animated corner borders */}
-                                                <div className="absolute -top-2 -left-2 w-8 h-8 border-t-4 border-l-4 border-[#8B0000] animate-pulse"></div>
-                                                <div className="absolute -bottom-2 -right-2 w-8 h-8 border-b-4 border-r-4 border-[#8B0000] animate-pulse"></div>
+                                                <div className="absolute -top-2 -left-2 w-5 h-5 md:w-8 md:h-8 border-t-2 md:border-t-4 border-l-2 md:border-l-4 border-[#8B0000] animate-pulse"></div>
+                                                <div className="absolute -bottom-2 -right-2 w-5 h-5 md:w-8 md:h-8 border-b-2 md:border-b-4 border-r-2 md:border-r-4 border-[#8B0000] animate-pulse"></div>
 
                                                 {/* Glowing background */}
                                                 <div className="absolute inset-0 bg-gradient-to-r from-[#8B0000]/10 via-transparent to-transparent blur-xl"></div>
 
                                                 {/* Content container */}
-                                                <div className="relative px-8 py-6 border-l-2 border-[#8B0000]/50">
+                                                <div className="relative px-4 py-4 md:px-8 md:py-6 border-l-2 border-[#8B0000]/50">
                                                     {/* Main title */}
                                                     <div className="relative mb-4">
                                                         <MagneticText
@@ -146,10 +146,10 @@ export default function App() {
                                                         animate={{ opacity: 1 }}
                                                         transition={{ delay: 0.8, duration: 0.6 }}
                                                     >
-                                                        <div className="text-2xl font-bold tracking-[0.3em] text-[#CD5C5C] drop-shadow-[0_0_15px_rgba(205,92,92,0.6)] uppercase">
+                                                        <div className="text-lg md:text-2xl font-bold tracking-[0.2em] md:tracking-[0.3em] text-[#CD5C5C] drop-shadow-[0_0_15px_rgba(205,92,92,0.6)] uppercase">
                                                             AI Engineer
                                                         </div>
-                                                        <div className="text-lg tracking-[0.2em] text-[#CD5C5C]/80 font-medium">
+                                                        <div className="text-sm md:text-lg tracking-[0.15em] md:tracking-[0.2em] text-[#CD5C5C]/80 font-medium">
                                                             Automation • Linux • Dev
                                                         </div>
                                                     </motion.div>
@@ -162,12 +162,13 @@ export default function App() {
                                             initial={{ opacity: 0, scale: 0.8 }}
                                             animate={{ opacity: 1, scale: 1 }}
                                             transition={{ delay: 1.2, duration: 0.5 }}
-                                            className="absolute bottom-10 right-10 z-10"
+                                            className="absolute bottom-6 right-4 md:bottom-10 md:right-10 z-10"
                                         >
                                             <a
                                                 href="./resume.pdf"
-                                                download
-                                                className="group flex items-center gap-3 bg-[#4A0E0E] text-[#CD5C5C] px-6 py-3 rounded-2xl font-bold text-xl border border-[#8B0000]/30 cursor-pointer transition-all duration-300 hover:bg-[#8B0000] hover:text-white hover:border-[#CD5C5C] active:scale-95 shadow-[0_0_20px_rgba(139,0,0,0.3)]"
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                className="group flex items-center gap-2 md:gap-3 bg-[#4A0E0E] text-[#CD5C5C] px-4 py-2.5 md:px-6 md:py-3 rounded-2xl font-bold text-base md:text-xl border border-[#8B0000]/30 cursor-pointer transition-all duration-300 hover:bg-[#8B0000] hover:text-white hover:border-[#CD5C5C] active:scale-95 shadow-[0_0_20px_rgba(139,0,0,0.3)]"
                                             >
                                                 <div className="transition-transform duration-500 group-hover:scale-125">
                                                     <svg
@@ -245,17 +246,17 @@ export default function App() {
                                         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-[#8B0000]/10 via-[#0a0a0a] to-[#0a0a0a]"></div>
 
                                         <div className="relative z-10 container mx-auto px-4 h-full flex flex-col items-center justify-center">
-                                            <div className="flex flex-col md:flex-row items-center gap-12 md:gap-24">
+                                            <div className="flex flex-col items-center gap-8 md:flex-row md:gap-24 px-4 md:px-0">
                                                 <div className="text-center md:text-left max-w-lg">
-                                                    <h2 className="text-5xl md:text-7xl font-black text-white mb-6 tracking-tighter">
+                                                    <h2 className="text-3xl sm:text-5xl md:text-7xl font-black text-white mb-4 md:mb-6 tracking-tighter">
                                                         Let's <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#CD5C5C] to-[#8B0000]">Connect</span>
                                                     </h2>
-                                                    <p className="text-xl text-white/60 font-light leading-relaxed mb-8">
+                                                    <p className="text-base md:text-xl text-white/60 font-light leading-relaxed mb-6 md:mb-8">
                                                         I'm always open to discussing product design work or partnership opportunities. Let's create something amazing together.
                                                     </p>
                                                 </div>
 
-                                                <div className="relative">
+                                                <div className="relative scale-[0.85] sm:scale-100">
                                                     <div className="absolute -inset-4 bg-[#8B0000]/20 rounded-full blur-[100px] -z-10"></div>
                                                     <ContactCard />
                                                 </div>
@@ -301,9 +302,9 @@ export default function App() {
                                         </div>
 
                                         {/* Content Overlay */}
-                                        <div className="container mx-auto px-6 relative z-10 flex h-full items-center justify-end pt-20 pb-4">
+                                        <div className="container mx-auto px-4 md:px-6 relative z-10 flex h-full items-center justify-center md:justify-end pt-20 pb-4">
                                             {/* Right Side Container for Text + Card */}
-                                            <div className="md:w-1/2 w-full flex flex-col gap-4 pr-4 md:pr-12 justify-center h-full">
+                                            <div className="md:w-1/2 w-full flex flex-col gap-4 items-center md:items-end pr-0 md:pr-12 justify-center h-full">
 
                                                 {/* Title Section with Floating Animation */}
                                                 <motion.div
@@ -318,9 +319,9 @@ export default function App() {
                                                         x: { duration: 0.8 },
                                                         y: { repeat: Infinity, duration: 4, ease: "easeInOut" }
                                                     }}
-                                                    className="text-right"
+                                                    className="text-center md:text-right"
                                                 >
-                                                    <h2 className="text-5xl md:text-7xl font-black text-white mb-2 tracking-tighter drop-shadow-2xl leading-none">
+                                                    <h2 className="text-3xl sm:text-5xl md:text-7xl font-black text-white mb-2 tracking-tighter drop-shadow-2xl leading-none">
                                                         Who is <br />
                                                         <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#CD5C5C] to-[#8B0000]">bas1c?</span>
                                                     </h2>
@@ -328,7 +329,7 @@ export default function App() {
 
                                                 {/* Profile Card / Mythic Card */}
                                                 <motion.div
-                                                    className="relative z-10 origin-right transform scale-90 md:scale-100"
+                                                    className="relative z-10 origin-center md:origin-right transform scale-[0.7] sm:scale-[0.85] md:scale-100"
                                                     initial={{ opacity: 0, y: 30 }}
                                                     animate={{ opacity: 1, y: 0 }}
                                                     transition={{ delay: 0.2, duration: 0.8 }}
